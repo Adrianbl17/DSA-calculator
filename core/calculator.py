@@ -1,6 +1,6 @@
-from tokenizer import tokenize
-from parser import infix_to_postfix
-from evaluator import evaluate_postfix
+from core.evaluator import evaluate_postfix
+from core.parser import infix_to_postfix
+from core.tokenizer import tokenize
 
 
 def calculate(expression, show_postfix=False):

@@ -1,29 +1,22 @@
-from calculator import calculate
-
-
 def main():
-    print('===== DSA CALCULATOR =====')
-    print('Operators: + - * / ( ) | Type exit to quit')
+    import argparse
 
-    while True:
-        try:
-            expression = input('\nEnter expression: ')
-        except (EOFError, KeyboardInterrupt):
-            print('\nGoodbye!')
-            break
+    argument_parser = argparse.ArgumentParser(description="DSA Calculator")
+    argument_parser.add_argument(
+        "--cli",
+        action="store_true",
+        help="launch the command-line calculator",
+    )
+    arguments = argument_parser.parse_args()
 
-        if expression.strip().lower() == 'exit':
-            print('Goodbye!')
-            break
+    if arguments.cli:
+        from ui.cli import main as run_cli
 
-        try:
-            result, postfix = calculate(expression, show_postfix=True)
+        run_cli()
+    else:
+        from ui.gui import run as run_gui
 
-            print('Postfix:', ' '.join(str(t) for t in postfix))
-            print(f'Result: {result:.10g}')
-
-        except ValueError as error:
-            print('Error:', error)
+        run_gui()
 
 
 if __name__ == '__main__':

@@ -1,6 +1,6 @@
 # DSA Calculator
 
-A simple Python calculator using stacks and the Shunting Yard algorithm.
+A simple Python calculator using a custom stack, the Shunting Yard algorithm and postfix evaluation.
 
 ## Features
 
@@ -8,14 +8,17 @@ A simple Python calculator using stacks and the Shunting Yard algorithm.
 - Parentheses and operator precedence
 - Negative and decimal numbers
 - Input validation and error handling
+- Graphical interface (GUI)
+- Command-line interface (CLI)
 
 ## How to run
 
-python main.py
+- GUI: `python main.py`
+- CLI: `python main.py --cli`
 
 ## How to test
 
-python -m unittest -v
+`python -m unittest discover -s tests -v`
 
 ## How it works
 
@@ -28,3 +31,5 @@ python -m unittest -v
 
 - Time complexity: O(n)
 - Space complexity: O(n)
+
+Where n is the length of the input expression.
