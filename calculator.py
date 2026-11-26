@@ -3,8 +3,12 @@ from parser import infix_to_postfix
 from evaluator import evaluate_postfix
 
 
-def calculate(expression):
+def calculate(expression, show_postfix=False):
     tokens = tokenize(expression)
     postfix = infix_to_postfix(tokens)
-    
-    return evaluate_postfix(postfix)
+    result = evaluate_postfix(postfix)
+
+    if show_postfix:
+        return result, postfix
+
+    return result
